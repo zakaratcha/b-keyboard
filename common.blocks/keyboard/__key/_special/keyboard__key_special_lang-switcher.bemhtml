@@ -1,0 +1,18 @@
+block('keyboard').elem('key').elemMod('special', 'lang-switcher')(
+    attrs()(function () {
+        return {
+            'data-langs': JSON.stringify(this.ctx.langs)
+        };
+    }),
+    content()(function () {
+        var ctx = this.ctx;
+        return ctx.langs.map(function (l, i) {return [
+                i ? {elem: 'lang-switcher-divider'} : '',
+                {
+                    elem: 'lang-switcher-label',
+                    elemMods: {active: l.id === ctx.lang},
+                    content: l.label
+                }
+            ];});
+    })
+);

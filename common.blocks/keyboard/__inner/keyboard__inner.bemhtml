@@ -1,0 +1,64 @@
+block('keyboard').elem('inner')(
+    def()(function () {
+        var ctx = this.ctx;
+
+        if (ctx.allowedLangs) {
+            ctx.langs = ctx.langs.filter(function (l) {
+                return ~ctx.allowedLangs.indexOf(l.id);
+            });
+        }
+
+        return applyNext();
+    }),
+    attrs()(function () {
+        return {
+            'data-keys': JSON.stringify(this.ctx.keys),
+            'data-langs': JSON.stringify(this.ctx.langs),
+            'data-allowed': JSON.stringify(this.ctx.allowedLangs || null)
+        };
+    }),
+    content()(function () {
+        var ctx = this.ctx,
+            lang = ctx.lang,
+            langs = ctx.langs,
+            mode = ctx.mode,
+            keys = ctx.keys[mode].keys.split(''),
+            specKeys = (ctx.keys[mode].specialKeys || ctx.keys.specialKeys),
+            keyNum = 0;
+
+        return this.ctx.rowsLayout.map(function (keysCount) {
+            return {
+                elem: 'row',
+                content: keys.splice(0,keysCount).map(function (keyCode) {
+                    keyNum++;
+
+                    var special = specKeys[keyNum] || {},
+                        isSuppressed = (special.mode === mode),
+                        keyMode = special.mode;
+
+                    return {
+                        elem: 'key',
+                        elemMods: {
+                            special: special.type,
+                            modechanger: !!special.mode,
+                            suppressed: isSuppressed
+                        },
+                        attrs: {
+                            'data-mode': keyMode
+                        },
+                        lang: lang,
+                        langs: langs,
+                        mode: mode,
+                        content: [
+                            {
+                                elem: 'val',
+                                content: special.value || keyCode
+                            },
+                            special.label
+                        ]
+                    };
+                })
+            };
+        });
+    })
+);

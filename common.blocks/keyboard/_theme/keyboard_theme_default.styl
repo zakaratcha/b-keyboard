@@ -1,0 +1,149 @@
+.keyboard_theme_default
+{
+    display: inline-block;
+    vertical-align: middle;
+
+    .keyboard
+    {
+        &__key
+        {
+            position: relative;
+            display: inline-block;
+            margin: 2px;
+            width: 38px;
+            height: 38px;
+            vertical-align: top;
+            line-height: 38px;
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            cursor: pointer;
+            border-radius: 2px;
+            background-color: #fff;
+
+            &_modechanger,
+            &_special_lang-selector
+            {
+                background-color: #ddf;
+            }
+
+            &_pressed
+            {
+                line-height: 40px;
+            }
+
+            &_suppressed
+            {
+                //background-color: #def4d1;
+                background-color: #fd9;
+                line-height: 40px;
+            }
+
+            &_disabled
+            {
+                color: #e6e6e6;
+                cursor: default;
+            }
+
+            &_special
+            {
+                &_backspace
+                {
+                    width: 80px;
+                    font-size: 24px;
+                    padding-right: 10px;
+                    text-align: right;
+
+                    &::before
+                    {
+                        content: '\2190';
+                    }
+                }
+
+                &_atmark
+                {
+                    width: 38px;
+                    padding-left: 10px;
+                    text-align: left;
+                }
+
+                &_capslock
+                {
+                    width: 51px;
+                    text-align: left;
+                    font-size: 24px;
+                    padding-left: 10px;
+
+                    &::before
+                    {
+                        content: '\21EA';
+                    }
+                }
+
+                &_enter
+                {
+                    width: 57px;
+                    text-align: right;
+                    padding-right: 10px;
+
+                    &::before
+                    {
+                        content: '\21B2';
+                    }
+                }
+
+                &_lshift
+                {
+                    width: 63px;
+                    padding-left: 10px;
+                    text-align: left;
+                    font-size: 24px;
+
+                    &::before
+                    {
+                        content: '\21E7';
+                    }
+                }
+
+                &_rshift
+                {
+                    width: 87px;
+                    padding-right: 10px;
+                    text-align: right;
+                    font-size: 24px;
+
+                    &::before
+                    {
+                        content: '\21E7';
+                    }
+                }
+
+                &_alt
+                {
+                    width: 118px;
+
+                    &::before
+                    {
+                        content: '« » { } ~';
+                    }
+                }
+
+                &_lang-selector
+                {
+                    width: 102px;
+                    font-size: 90%;
+                }
+
+                &_space
+                {
+                    width: 408px;
+                }
+
+                &_sch
+                {
+                    font-size: 80%;
+                }
+            }
+        }
+    }
+}

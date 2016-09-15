@@ -1,0 +1,163 @@
+.keyboard_theme_eo
+{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+    font-family: $Ubuntu;
+
+    .keyboard
+    {
+        &__lang-switcher-label
+        {
+            display: inline;
+            text-transform: uppercase;
+
+            &_active
+            {
+                color: #006333;
+            }
+        }
+
+        &__lang-switcher-divider
+        {
+            display: inline;
+
+            &::before
+            {
+                content: '/';
+                margin: 0 5px;
+            }
+        }
+
+        &__val
+        {
+            display: inline;
+        }
+
+        &__key
+        {
+            position: relative;
+            display: inline-block;
+            margin: 5px;
+            width: 58px;
+            height: 58px;
+            vertical-align: top;
+            line-height: 56px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            border: 1px #d2d2d2 solid;
+            background-color: #fff;
+            box-shadow: 0 -3px 0 rgba(255,255,255,0) inset;
+            transition: all .2s;
+
+            &_pressed
+            {
+                border-color: #00994e;
+                color: #fff;
+                box-shadow: 0 -3px 0 #006333 inset, 0 1px 10px rgba(0,153,78,.8);
+                background-color: #00994e;
+
+                .keyboard__lang-switcher-label
+                {
+                    color: inherit;
+                }
+            }
+
+            &_special
+            {
+                &_backspace
+                {
+                    width: 153px;
+                    margin-left: 15px;
+                    padding-right: 15px;
+                    text-align: right;
+                    font-size: 20px;
+
+                    &::before
+                    {
+                        content: '\f1d9';
+                        vertical-align: middle;
+                        display: inline-block;
+                        height: 100%;
+                        margin-right: 14px;
+                        font: 26px/54px 'Material-Design-Iconic-Font';
+                    }
+                }
+
+                &_enter
+                {
+                    width: 113px;
+                    margin-left: 15px;
+                    padding-right: 20px;
+                    text-align: right;
+                    font-size: 20px;
+
+                    &::before
+                    {
+                        content: '\f300';
+                        vertical-align: middle;
+                        display: inline-block;
+                        height: 100%;
+                        margin-right: 13px;
+                        font: 26px/54px 'Material-Design-Iconic-Font';
+                    }
+                }
+
+                &_lang-switcher
+                {
+                    width: 152px;
+                    margin-left: 15px;
+                    padding-right: 16px;
+                    text-align: right;
+                    font-size: 20px;
+
+                    &::before
+                    {
+                        content: '\f171';
+                        vertical-align: middle;
+                        display: inline-block;
+                        height: 100%;
+                        margin-right: 17px;
+                        font: 26px/54px 'Material-Design-Iconic-Font';
+                    }
+                }
+
+                &_space
+                {
+                    width: 200px;
+
+                    &::before
+                    {
+                        content: '[';
+                        display: inline-block;
+                        padding: 0 9px 3px 0;
+                        transform: rotate(-90deg);
+                        line-height: 1;
+                    }
+                }
+
+                &_shift
+                {
+                    width: 182px;
+                    margin-left: 15px;
+                    padding-right: 19px;
+                    text-align: right;
+                    font-size: 20px;
+
+                    &::before
+                    {
+                        content: '\f39c';
+                        vertical-align: middle;
+                        display: inline-block;
+                        height: 100%;
+                        margin-right: 20px;
+                        font: 32px/52px 'Material-Design-Iconic-Font';
+                    }
+                }
+            }
+        }
+    }
+}

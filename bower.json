@@ -1,0 +1,14 @@
+{
+  "name": "b-keyboard",
+  "version": "1.7.0",
+  "description": "BEM keyboard block",
+  "bugs": "https://github.com/zakaratcha/b-keyboard/issues",
+  "ignore": [
+    ".bem/cache",
+    "node_modules",
+    "libs"
+  ],
+  "dependencies": {
+    "bem-components": "3.0.1"
+  }
+}
