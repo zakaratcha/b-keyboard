@@ -27,7 +27,7 @@ module.exports = {
                 {
                     block: 'keyboard-container',
                     content: {
-                        block: 'keyboard',
+                        block: 'screen-keyboard',
                         mods: {
                             lang: 'ru'
                         }

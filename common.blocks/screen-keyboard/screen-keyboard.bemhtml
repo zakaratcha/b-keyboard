@@ -1,0 +1,22 @@
+block('screen-keyboard')(
+    def()(function () {
+        this.ctx.mods = this.extend({
+            mode: 'normal',
+            theme: 'default'
+        }, this.ctx.mods || {});
+
+        return applyNext(this.ctx);
+    }),
+    js()(true),
+    content()(function () {
+        var ctx = this.ctx,
+            mods = ctx.mods;
+
+        return {
+            elem: 'inner',
+            lang: mods.lang,
+            mode: mods.mode,
+            allowedLangs: ctx.allowedLangs
+        };
+    })
+);

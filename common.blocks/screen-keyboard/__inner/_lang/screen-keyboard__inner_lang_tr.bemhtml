@@ -1,0 +1,163 @@
+block('screen-keyboard').elem('inner').def()(function () {
+    this.ctx.langs = this.ctx.langs || [];
+    this.ctx.langs.push({id: 'tr', label: 'Türkçe'});
+    return applyNext();
+});
+
+block('screen-keyboard')
+        .elem('inner')
+        .match(function () {return this.ctx.lang === 'tr';})
+        .def()(function () {
+
+    this.ctx.rowsLayout = [14, 15, 14, 13, 3];
+
+    // Специальные и пустые клавиши кодируются с помощью \u0000
+    // Специальные клавиши пронумерованы начиная с 1.
+
+    this.ctx.keys = {
+        normal: {
+            keys: '\u0060\u0031\u0032\u0033\u0034\u0035\u0036\u0037\u0038\u0039' +
+                '\u0030\u002d\u003d\u0000\u0040\u0071\u0077\u0065\u0072\u0074' +
+                '\u0079\u0075\u0131\u006f\u0070\u011f\u00fc\u0000\u005c\u0000' +
+                '\u0061\u0073\u0064\u0066\u0067\u0068\u006a\u006b\u006c\u015f' +
+                '\u0069\u0021\u0000\u000a\u007a\u0078\u0063\u0076\u0062\u006e' +
+                '\u006d\u00f6\u00e7\u002c\u002e\u0000\u0000\u0020\u0000',
+            specialKeys: {
+                '14': {type: 'backspace'},
+                '15': {type: 'atmark'},
+                '28': {type: 'mod', mode: 'mod', label: '\u005e'}, // '\u2303' is not supported on Win systems
+                '30': {type: 'capslock', mode: 'capslock'},
+                '43': {type: 'enter'},
+                '44': {type: 'lshift', mode: 'shift'},
+                '56': {type: 'rshift', mode: 'shift'},
+                '57': {type: 'lang-selector'},
+                '58': {type: 'space'},
+                '59': {type: 'alt', mode: 'alt'}
+            }
+        },
+        shift: {
+            keys: '\u007e\u0021\u0040\u0023\u0024\u0025\u005e\u0026\u002a\u0028' +
+                '\u0029\u005f\u002b\u0000\u0040\u0051\u0057\u0045\u0052\u0054' +
+                '\u0059\u0055\u0049\u004f\u0050\u011e\u00dc\u0000\u005c\u0000' +
+                '\u0041\u0053\u0044\u0046\u0047\u0048\u004a\u004b\u004c\u015e' +
+                '\u0130\u003f\u0000\u000a\u005a\u0058\u0043\u0056\u0042\u004e' +
+                '\u004d\u00d6\u00c7\u003b\u003a\u0000\u0000\u0020\u0000',
+            specialKeys: {
+                '14': {type: 'backspace'},
+                '15': {type: 'atmark'},
+                '28': {type: 'mod', mode: 'mod-shift', label: '\u005e'},
+                '30': {type: 'capslock', mode: 'capslock'},
+                '43': {type: 'enter'},
+                '44': {type: 'lshift', mode: 'shift'},
+                '56': {type: 'rshift', mode: 'shift'},
+                '57': {type: 'lang-selector'},
+                '58': {type: 'space'},
+                '59': {type: 'alt', mode: 'alt'}
+            }
+        },
+        capslock: {
+            continuous: true,
+            keys: '\u007e\u0021\u0040\u0023\u0024\u0025\u005e\u0026\u002a\u0028' +
+                '\u0029\u005f\u002b\u0000\u0040\u0051\u0057\u0045\u0052\u0054' +
+                '\u0059\u0055\u0049\u004f\u0050\u011e\u00dc\u0000\u005c\u0000' +
+                '\u0041\u0053\u0044\u0046\u0047\u0048\u004a\u004b\u004c\u015e' +
+                '\u0130\u003f\u0000\u000a\u005a\u0058\u0043\u0056\u0042\u004e' +
+                '\u004d\u00d6\u00c7\u003b\u003a\u0000\u0000\u0020\u0000',
+            specialKeys: {
+                '14': {type: 'backspace'},
+                '15': {type: 'atmark'},
+                '28': {type: 'mod', mode: 'mod-caps', label: '\u005e'},
+                '30': {type: 'capslock', mode: 'capslock'},
+                '43': {type: 'enter'},
+                '44': {type: 'lshift', mode: 'shift'},
+                '56': {type: 'rshift', mode: 'shift'},
+                '57': {type: 'lang-selector'},
+                '58': {type: 'space'},
+                '59': {type: 'alt', mode: 'alt'}
+            }
+        },
+        mod: {
+            keys: '\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u0000\u0000\u0000\u0000\u0040\u0000\u0000\u0000\u0000\u0000' +
+                '\u0000\u00fb\u0000\u00f4\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u00e2\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u00ee\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0020\u0000',
+            specialKeys: {
+                '14': {type: 'backspace'},
+                '15': {type: 'atmark'},
+                '28': {type: 'mod', mode: 'mod', label: '\u005e'},
+                '30': {type: 'capslock', mode: 'mod-caps'},
+                '43': {type: 'enter'},
+                '44': {type: 'lshift', mode: 'mod-shift'},
+                '56': {type: 'rshift', mode: 'mod-shift'},
+                '57': {type: 'lang-selector'},
+                '58': {type: 'space'},
+                '59': {type: 'alt', mode: 'alt'}
+            }
+        },
+        'mod-shift': {
+            keys: '\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u0000\u0000\u0000\u0000\u0040\u0000\u0000\u0000\u0000\u0000' +
+                '\u0000\u00db\u0000\u00d4\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u00c2\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u00ce\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0020\u0000',
+            specialKeys: {
+                '14': {type: 'backspace'},
+                '15': {type: 'atmark'},
+                '28': {type: 'mod', mode: 'mod-shift', label: '\u005e'},
+                '30': {type: 'capslock', mode: 'mod-caps'},
+                '43': {type: 'enter'},
+                '44': {type: 'lshift', mode: 'mod-shift'},
+                '56': {type: 'rshift', mode: 'mod-shift'},
+                '57': {type: 'lang-selector'},
+                '58': {type: 'space'},
+                '59': {type: 'alt', mode: 'alt'}
+            }
+        },
+        'mod-caps': {
+            retreat: 'capslock',
+            keys: '\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u0000\u0000\u0000\u0000\u0040\u0000\u0000\u0000\u0000\u0000' +
+                '\u0000\u00db\u0000\u00d4\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u00c2\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u00ce\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000' +
+                '\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0020\u0000',
+            specialKeys: {
+                '14': {type: 'backspace'},
+                '15': {type: 'atmark'},
+                '28': {type: 'mod', mode: 'mod-caps', label: '\u005e'},
+                '30': {type: 'capslock', mode: 'mod-caps'},
+                '43': {type: 'enter'},
+                '44': {type: 'lshift', mode: 'mod-shift'},
+                '56': {type: 'rshift', mode: 'mod-shift'},
+                '57': {type: 'lang-selector'},
+                '58': {type: 'space'},
+                '59': {type: 'alt', mode: 'alt'}
+            }
+        },
+        alt: {
+            continuous: true,
+            keys: '\u00b0\u00b1\u00bc\u00bd\u00be\u00a4\u00ac\u00b2\u00b3\u00a2' +
+                '\u20ac\u00a3\u03bc\u0000\u0040\u007e\u00a7\u00b6\u003a\u003b' +
+                '\u0000\u0027\u0022\u00ab\u00bb\u005b\u005d\u007b\u007d\u0000' +
+                '\u0000\u0000\u0000\u0000\u2018\u2019\u201e\u201c\u201d\u0000' +
+                '\u0021\u003f\u0000\u000a\u0000\u0000\u0000\u0000\u003c\u003e' +
+                '\u2013\u2014\u005c\u007c\u002f\u0000\u0000\u0020\u0000',
+            specialKeys: {
+                '14': {type: 'backspace'},
+                '15': {type: 'atmark'},
+                '30': {type: 'capslock', mode: 'capslock'},
+                '43': {type: 'enter'},
+                '44': {type: 'lshift', mode: 'shift'},
+                '56': {type: 'rshift', mode: 'shift'},
+                '57': {type: 'lang-selector'},
+                '58': {type: 'space'},
+                '59': {type: 'alt', mode: 'alt'}
+            }
+        }
+    };
+
+    return applyNext();
+});

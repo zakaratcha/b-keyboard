@@ -25,7 +25,7 @@ module.exports = {
                 {
                     block: 'pincode-container',
                     content: {
-                        block: 'keyboard',
+                        block: 'screen-keyboard',
                         mods: {
                             theme: 'default',
                             lang: 'pincode'
@@ -38,7 +38,7 @@ module.exports = {
                 {
                     block: 'keyboard-container',
                     content: {
-                        block: 'keyboard',
+                        block: 'screen-keyboard',
                         mods: {
                             theme: 'eo',
                             lang: 'rus'

@@ -1,0 +1,147 @@
+block('screen-keyboard').elem('inner').def()(function () {
+    this.ctx.langs = this.ctx.langs || [];
+    this.ctx.langs.push({id: 'eng', label: 'Eng'});
+    return applyNext();
+});
+
+block('screen-keyboard')
+        .elem('inner')
+        .match(function () {return this.ctx.lang === 'eng';})
+        .def()(function () {
+
+    this.ctx.rowsLayout = [14, 15, 14, 11];
+
+    // Специальные и пустые клавиши кодируются с помощью \u0000
+    // Специальные клавиши пронумерованы начиная с 1.
+
+    this.ctx.keys = {
+        normal: {
+            keys:   '\u0031' + // 1
+                    '\u0032' + // 2
+                    '\u0033' + // 3
+                    '\u0034' + // 4
+                    '\u0035' + // 5
+                    '\u0036' + // 6
+                    '\u0037' + // 7
+                    '\u0038' + // 8
+                    '\u0039' + // 9
+                    '\u0030' + // 0
+                    '\u002d' + // -
+                    '\u003d' + // =
+                    '\u002f' + // /
+                    '\u0000' + // backspace
+                    '\u0071' + // q
+                    '\u0077' + // w
+                    '\u0065' + // e
+                    '\u0072' + // r
+                    '\u0074' + // t
+                    '\u0079' + // y
+                    '\u0075' + // u
+                    '\u0069' + // i
+                    '\u006f' + // o
+                    '\u0070' + // p
+                    '\u005b' + // [
+                    '\u005d' + // ]
+                    '\u005c' + // \
+                    '\u0027' + // '
+                    '\u0000' + // enter
+                    '\u0061' + // a
+                    '\u0073' + // s
+                    '\u0064' + // d
+                    '\u0066' + // f
+                    '\u0067' + // g
+                    '\u0068' + // h
+                    '\u006a' + // j
+                    '\u006b' + // k
+                    '\u006c' + // l
+                    '\u003a' + // :
+                    '\u003b' + // ;
+                    '\u0021' + // !
+                    '\u0060' + // `
+                    '\u0000' + // lang-switcher
+                    '\u007a' + // z
+                    '\u0078' + // x
+                    '\u0063' + // c
+                    '\u0076' + // v
+                    '\u0062' + // b
+                    '\u0020' + // space
+                    '\u006e' + // n
+                    '\u006d' + // m
+                    '\u002c' + // ,
+                    '\u002e' + // .
+                    '\u0000'   // shift
+        },
+        shift: {
+            keys:   '\u0031' + // 1
+                    '\u0032' + // 2
+                    '\u0033' + // 3
+                    '\u0034' + // 4
+                    '\u0035' + // 5
+                    '\u0036' + // 6
+                    '\u0037' + // 7
+                    '\u0038' + // 8
+                    '\u0039' + // 9
+                    '\u0030' + // 0
+                    '\u002d' + // -
+                    '\u003d' + // =
+                    '\u002f' + // /
+                    '\u0000' + // backspace
+                    '\u0051' + // Q
+                    '\u0057' + // W
+                    '\u0045' + // E
+                    '\u0052' + // R
+                    '\u0054' + // T
+                    '\u0059' + // Y
+                    '\u0055' + // U
+                    '\u0049' + // I
+                    '\u004f' + // O
+                    '\u0050' + // P
+                    '\u005b' + // [
+                    '\u005d' + // ]
+                    '\u005c' + // \
+                    '\u0027' + // '
+                    '\u0000' + // enter
+                    '\u0041' + // A
+                    '\u0053' + // S
+                    '\u0044' + // D
+                    '\u0046' + // F
+                    '\u0047' + // G
+                    '\u0048' + // H
+                    '\u004a' + // J
+                    '\u004b' + // K
+                    '\u004c' + // L
+                    '\u003a' + // :
+                    '\u003b' + // ;
+                    '\u0021' + // !
+                    '\u0060' + // `
+                    '\u0000' + // lang-switcher
+                    '\u005a' + // Z
+                    '\u0058' + // X
+                    '\u0043' + // C
+                    '\u0056' + // V
+                    '\u0042' + // B
+                    '\u0020' + // space
+                    '\u004e' + // N
+                    '\u004d' + // M
+                    '\u002c' + // ,
+                    '\u002e' + // .
+                    '\u0000',  // shift
+            specialKeys: {
+                '14': {type: 'backspace', label: 'DELETE'},
+                '29': {type: 'enter', label: 'ENTER'},
+                '43': {type: 'lang-switcher', label: 'РУС / ENG'},
+                '49': {type: 'space'},
+                '54': {type: 'shift', mode: 'shift', label: 'LOWERCASE'}
+            }
+        },
+        specialKeys: {
+                '14': {type: 'backspace', label: 'DELETE'},
+                '29': {type: 'enter', label: 'ENTER'},
+                '43': {type: 'lang-switcher', label: 'РУС / ENG'},
+                '49': {type: 'space'},
+                '54': {type: 'shift', mode: 'shift', label: 'UPPERCASE'}
+        }
+    };
+
+    return applyNext();
+});
