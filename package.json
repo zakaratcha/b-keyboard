@@ -1,10 +1,10 @@
 {
   "author": "zakaratcha",
-  "name": "b-keyboard",
+  "name": "screen-keyboard",
   "version": "1.7.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/zakaratcha/b-keyboard.git"
+    "url": "git://github.com/zakaratcha/screen-keyboard.git"
   },
   "engines": {
     "node": ">=0.12"

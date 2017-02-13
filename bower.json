@@ -1,8 +1,8 @@
 {
-  "name": "b-keyboard",
+  "name": "screen-keyboard",
   "version": "1.7.0",
   "description": "BEM keyboard block",
-  "bugs": "https://github.com/zakaratcha/b-keyboard/issues",
+  "bugs": "https://github.com/zakaratcha/screen-keyboard/issues",
   "ignore": [
     ".bem/cache",
     "node_modules",
