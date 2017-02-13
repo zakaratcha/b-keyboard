@@ -1,0 +1,144 @@
+.screen-keyboard_theme_default
+{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key
+{
+    position: relative;
+    display: inline-block;
+    margin: 2px;
+    width: 38px;
+    height: 38px;
+    vertical-align: top;
+    line-height: 38px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: #fff;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_modechanger,
+.screen-keyboard_theme_default .screen-keyboard__key_special_lang-selector
+{
+    background-color: #ddf;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_pressed
+{
+    line-height: 40px;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_suppressed
+{
+    /*background-color: #def4d1;*/
+    background-color: #fd9;
+    line-height: 40px;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_disabled
+{
+    color: #e6e6e6;
+    cursor: default;
+}
+
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_backspace
+{
+    width: 80px;
+    font-size: 24px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_backspace::before
+{
+    content: '\2190';
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_atmark
+{
+    width: 38px;
+    padding-left: 10px;
+    text-align: left;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_capslock
+{
+    width: 51px;
+    text-align: left;
+    font-size: 24px;
+    padding-left: 10px;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_capslock::before
+{
+    content: '\21EA';
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_enter
+{
+    width: 57px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_enter::before
+{
+    content: '\21B2';
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_lshift
+{
+    width: 63px;
+    padding-left: 10px;
+    text-align: left;
+    font-size: 24px;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_lshift::before
+{
+    content: '\21E7';
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_rshift
+{
+    width: 87px;
+    padding-right: 10px;
+    text-align: right;
+    font-size: 24px;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_rshift::before
+{
+    content: '\21E7';
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_alt
+{
+    width: 118px;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_alt::before
+{
+    content: '« » { } ~';
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_lang-selector
+{
+    width: 102px;
+    font-size: 90%;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_space
+{
+    width: 408px;
+}
+
+.screen-keyboard_theme_default .screen-keyboard__key_special_sch
+{
+    font-size: 80%;
+}
