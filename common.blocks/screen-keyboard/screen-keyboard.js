@@ -156,6 +156,8 @@ provide(bemDom.declBlock(this.name, {
                         });
         }
 
+        if(!$targetField) return;
+
         // Устанавливаем значение с учетом положения каретки
 
         if(type !== 'backspace') {

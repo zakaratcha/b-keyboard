@@ -1,7 +1,6 @@
 module.exports = {
     block : 'page',
     title : 'Keyboard demo',
-    favicon : '/favicon.ico',
     head : [
         { elem : 'meta', attrs : { name : 'description', content : '' } },
         { elem : 'meta', attrs : { name : 'viewport', content : 'width=device-width, initial-scale=1' } },
