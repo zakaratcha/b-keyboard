@@ -12,21 +12,18 @@ var techs = {
         // js
         browserJs: require('enb-js/techs/browser-js'),
 
-        // bemtree
-        // bemtree: require('enb-bemxjst/techs/bemtree'),
-
         // bemhtml
         bemhtml: require('enb-bemxjst/techs/bemhtml'),
         bemjsonToHtml: require('enb-bemxjst/techs/bemjson-to-html')
     },
     enbBemTechs = require('enb-bem-techs'),
     levels = [
-        { path: 'libs/bem-core/common.blocks', check: false },
-        { path: 'libs/bem-core/desktop.blocks', check: false },
-        { path: 'libs/bem-components/common.blocks', check: false },
-        { path: 'libs/bem-components/desktop.blocks', check: false },
-        { path: 'libs/bem-components/design/common.blocks', check: false },
-        { path: 'libs/bem-components/design/desktop.blocks', check: false },
+        { path: 'node_modules/bem-core/common.blocks', check: false },
+        { path: 'node_modules/bem-core/desktop.blocks', check: false },
+        { path: 'node_modules/bem-components/common.blocks', check: false },
+        { path: 'node_modules/bem-components/desktop.blocks', check: false },
+        { path: 'node_modules/bem-components/design/common.blocks', check: false },
+        { path: 'node_modules/bem-components/design/desktop.blocks', check: false },
         'common.blocks',
         'desktop.blocks'
     ];
