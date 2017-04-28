@@ -4,7 +4,7 @@ block('screen-keyboard').elem('inner')(
 
         if (ctx.allowedLangs) {
             ctx.langs = ctx.langs.filter(function (l) {
-                return ~ctx.allowedLangs.indexOf(l.id);
+                return ctx.allowedLangs.indexOf(l.id) !== -1;
             });
         }
 
@@ -18,29 +18,29 @@ block('screen-keyboard').elem('inner')(
         };
     }),
     content()(function () {
-        var ctx = this.ctx,
-            lang = ctx.lang,
-            langs = ctx.langs,
-            mode = ctx.mode,
-            keys = ctx.keys[mode].keys.split(''),
-            specKeys = (ctx.keys[mode].specialKeys || ctx.keys.specialKeys),
-            keyNum = 0;
+        var ctx = this.ctx;
+        var lang = ctx.lang;
+        var langs = ctx.langs;
+        var mode = ctx.mode;
+        var keys = ctx.keys[mode].keys.split('');
+        var specKeys = (ctx.keys[mode].specialKeys || ctx.keys.specialKeys);
+        var keyNum = 0;
 
         return this.ctx.rowsLayout.map(function (keysCount) {
             return {
                 elem: 'row',
-                content: keys.splice(0,keysCount).map(function (keyCode) {
+                content: keys.splice(0, keysCount).map(function (keyCode) {
                     keyNum++;
 
-                    var special = specKeys[keyNum] || {},
-                        isSuppressed = (special.mode === mode),
-                        keyMode = special.mode;
+                    var special = specKeys[keyNum] || {};
+                    var isSuppressed = (special.mode === mode);
+                    var keyMode = special.mode;
 
                     return {
                         elem: 'key',
                         elemMods: {
                             special: special.type,
-                            modechanger: !!special.mode,
+                            modechanger: Boolean(special.mode),
                             suppressed: isSuppressed
                         },
                         attrs: {

@@ -6,13 +6,15 @@ block('screen-keyboard').elem('key').elemMod('special', 'lang-switcher')(
     }),
     content()(function () {
         var ctx = this.ctx;
-        return ctx.langs.map(function (l, i) {return [
+        return ctx.langs.map(function (l, i) {
+            return [
                 i ? {elem: 'lang-switcher-divider'} : '',
                 {
                     elem: 'lang-switcher-label',
                     elemMods: {active: l.id === ctx.lang},
                     content: l.label
                 }
-            ];});
+            ];
+        });
     })
 );

@@ -1,22 +1,28 @@
 .screen-keyboard_theme_default
 {
     display: inline-block;
+
     vertical-align: middle;
 }
 
 .screen-keyboard_theme_default .screen-keyboard__key
 {
+    font-size: 18px;
+    line-height: 38px;
+
     position: relative;
+
     display: inline-block;
-    margin: 2px;
+
     width: 38px;
     height: 38px;
-    vertical-align: top;
-    line-height: 38px;
-    text-align: center;
-    font-size: 18px;
-    color: #333;
+    margin: 2px;
+
     cursor: pointer;
+    text-align: center;
+    vertical-align: top;
+
+    color: #333;
     border-radius: 2px;
     background-color: #fff;
 }
@@ -34,23 +40,25 @@
 
 .screen-keyboard_theme_default .screen-keyboard__key_suppressed
 {
-    /*background-color: #def4d1;*/
-    background-color: #fd9;
     line-height: 40px;
+
+    background-color: #fd9;
 }
 
 .screen-keyboard_theme_default .screen-keyboard__key_disabled
 {
-    color: #e6e6e6;
     cursor: default;
-}
 
+    color: #e6e6e6;
+}
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_backspace
 {
-    width: 80px;
     font-size: 24px;
+
+    width: 80px;
     padding-right: 10px;
+
     text-align: right;
 }
 
@@ -63,15 +71,18 @@
 {
     width: 38px;
     padding-left: 10px;
+
     text-align: left;
 }
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_capslock
 {
-    width: 51px;
-    text-align: left;
     font-size: 24px;
+
+    width: 51px;
     padding-left: 10px;
+
+    text-align: left;
 }
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_capslock::before
@@ -82,8 +93,9 @@
 .screen-keyboard_theme_default .screen-keyboard__key_special_enter
 {
     width: 57px;
-    text-align: right;
     padding-right: 10px;
+
+    text-align: right;
 }
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_enter::before
@@ -93,10 +105,12 @@
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_lshift
 {
+    font-size: 24px;
+
     width: 63px;
     padding-left: 10px;
+
     text-align: left;
-    font-size: 24px;
 }
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_lshift::before
@@ -106,10 +120,12 @@
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_rshift
 {
+    font-size: 24px;
+
     width: 87px;
     padding-right: 10px;
+
     text-align: right;
-    font-size: 24px;
 }
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_rshift::before
@@ -129,8 +145,9 @@
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_lang-selector
 {
-    width: 102px;
     font-size: 90%;
+
+    width: 102px;
 }
 
 .screen-keyboard_theme_default .screen-keyboard__key_special_space

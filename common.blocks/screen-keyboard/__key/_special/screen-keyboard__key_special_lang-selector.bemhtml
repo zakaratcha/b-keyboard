@@ -1,6 +1,8 @@
 block('screen-keyboard').elem('key').elemMod('special', 'lang-selector')(
     content()(function () {
         var ctx = this.ctx;
-        return ctx.langs.filter(function (l) {return l.id === ctx.lang;})[0].label;
+        return ctx.langs.filter(function (l) {
+            return l.id === ctx.lang;
+        })[0].label;
     })
 );

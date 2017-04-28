@@ -1,35 +1,31 @@
 modules.define('screen-keyboard', [
-            'i-bem-dom'
-        ], function (
-                provide,
-                bemDom) {
+    'i-bem-dom'
+], function (provide, bemDom) {
+    provide(bemDom.declBlock(this.name, {}, {
+        onInit: function () {
+            this.__base.apply(this, arguments);
 
-provide(bemDom.declBlock(this.name, {}, {
+            var elem = {elem: 'key', modName: 'special', modVal: 'lang-switcher'};
 
-    onInit : function() {
-        this.__base.apply(this, arguments);
+            this._domEvents(elem).on('click', function () {
+                var keyboard = this;
+                var currLangId = keyboard.getMod('lang');
+                var currLangI = 0;
 
-        var elem = {elem: 'key', modName: 'special', modVal: 'lang-switcher'};
+                keyboard._langs.forEach(function (lang, i) {
+                    if (currLangId === lang.id) {
+                        currLangI = i;
+                    }
+                });
 
-        this._domEvents(elem).on('click', function (e) {
-            var keyboard = this,
-                currLangId = keyboard.getMod('lang');
-                currLangI = 0;
+                var newLangI = currLangI + 1;
 
+                if (newLangI >= keyboard._langs.length) {
+                    newLangI = 0;
+                }
 
-            keyboard._langs.forEach(function (lang, i) {
-                if (currLangId === lang.id) currLangI = i;
+                keyboard.setMod('lang', keyboard._langs[newLangI].id);
             });
-
-            var newLangI = currLangI + 1;
-
-            if (newLangI >= keyboard._langs.length) newLangI = 0;
-
-            keyboard.setMod('lang', keyboard._langs[newLangI].id);
-        });
-    }
-
-}
-));
-
+        }
+    }));
 });

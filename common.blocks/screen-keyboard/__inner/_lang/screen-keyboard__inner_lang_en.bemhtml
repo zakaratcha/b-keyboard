@@ -6,17 +6,18 @@ block('screen-keyboard').elem('inner').def()(function () {
 
 block('screen-keyboard')
         .elem('inner')
-        .match(function () {return this.ctx.lang === 'en';})
+        .match(function () {
+            return this.ctx.lang === 'en';
+        })
         .def()(function () {
+            this.ctx.rowsLayout = [14, 15, 14, 13, 3];
 
-    this.ctx.rowsLayout = [14, 15, 14, 13, 3];
+            // Специальные и пустые клавиши кодируются с помощью \u0000
+            // Специальные клавиши пронумерованы начиная с 1.
 
-    // Специальные и пустые клавиши кодируются с помощью \u0000
-    // Специальные клавиши пронумерованы начиная с 1.
-
-    this.ctx.keys = {
-        normal: {
-            keys:   '\u0060' + // `
+            this.ctx.keys = {
+                normal: {
+                    keys: '\u0060' + // `
                     '\u0031' + // 1
                     '\u0032' + // 2
                     '\u0033' + // 3
@@ -75,9 +76,9 @@ block('screen-keyboard')
                     '\u0000' + // lang-switcher
                     '\u0020' + // space
                     '\u0000' // alt
-        },
-        shift: {
-            keys:   '\u007e' + // ~
+                },
+                shift: {
+                    keys: '\u007e' + // ~
                     '\u0021' + // !
                     '\u0040' + // @
                     '\u0023' + // #
@@ -136,10 +137,10 @@ block('screen-keyboard')
                     '\u0000' + // lang-switcher
                     '\u0020' + // space
                     '\u0000' // alt
-        },
-        capslock: {
-            continuous: true,
-            keys:   '\u0060' + // `
+                },
+                capslock: {
+                    continuous: true,
+                    keys: '\u0060' + // `
                     '\u0031' + // 1
                     '\u0032' + // 2
                     '\u0033' + // 3
@@ -198,10 +199,10 @@ block('screen-keyboard')
                     '\u0000' + // lang-switcher
                     '\u0020' + // space
                     '\u0000' // alt
-        },
-        alt: {
-            continuous: true,
-            keys:   '\u00b0' + // градус
+                },
+                alt: {
+                    continuous: true,
+                    keys: '\u00b0' + // градус
                     '\u00b1' + // ±
                     '\u00bc' + // 1/4
                     '\u00bd' + // 1/2
@@ -254,19 +255,19 @@ block('screen-keyboard')
                     '\u0000' + // lang-switcher
                     '\u0020' + // space
                     '\u0000' // alt
-        },
-        specialKeys: {
-            '14': {type: 'backspace'},
-            '15': {type: 'atmark'},
-            '30': {type: 'capslock', mode: 'capslock'},
-            '43': {type: 'enter'},
-            '44': {type: 'lshift', mode: 'shift'},
-            '56': {type: 'rshift', mode: 'shift'},
-            '57': {type: 'lang-selector'},
-            '58': {type: 'space'},
-            '59': {type: 'alt', mode: 'alt'}
-        }
-    };
+                },
+                specialKeys: {
+                    14: {type: 'backspace'},
+                    15: {type: 'atmark'},
+                    30: {type: 'capslock', mode: 'capslock'},
+                    43: {type: 'enter'},
+                    44: {type: 'lshift', mode: 'shift'},
+                    56: {type: 'rshift', mode: 'shift'},
+                    57: {type: 'lang-selector'},
+                    58: {type: 'space'},
+                    59: {type: 'alt', mode: 'alt'}
+                }
+            };
 
-    return applyNext();
-});
+            return applyNext();
+        });
